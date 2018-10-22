@@ -24,7 +24,6 @@ ofstream SeedFile;
 int SEED = time(NULL);
 
 //Current Known Issues
-//File Wont Overwrite previous values
 //Can only take up to 100 char input (use dynamic arrays maybe)
 //File will not self create itself it not found(problem for first time user)
 
@@ -42,11 +41,11 @@ int main()
 	//cin >> filename;
 	//outputFile.open(filename);
 
-	outputFile.open("EncodedFile.txt");
+	outputFile.open("EncodedFile.txt", fstream::in | fstream::out | fstream::trunc);
 	
 
 
-	encode("EncodeThisForMeBecauseIWannaSeeItWork");
+	encode("SeanGrubb1234");
 
 	decode();
 
