@@ -25,7 +25,11 @@ int SEED = time(NULL);
 
 //Current Known Issues
 //Can only take up to 100 char input (use dynamic arrays maybe)
-//File will not self create itself it not found(problem for first time user)
+
+
+//TODO make these parameters in the functions 
+string EncodeString;
+string Filename;
 
 int main()
 {
@@ -35,18 +39,20 @@ int main()
 	SeedFile << SEED;
 	SeedFile.close();
 
-	string filename;
 
-	//cout << "what would you like the file name to be?\n";
-	//cin >> filename;
-	//outputFile.open(filename);
+	//Asking for user input to create specific file name 
 
-	outputFile.open("EncodedFile.txt", fstream::in | fstream::out | fstream::trunc);
+	cout << "what would you like the file name to be?(Can include File Extenstion, Default is basic FILE)\n";
+	cin >> Filename;
 
+	outputFile.open(Filename, fstream::in | fstream::out | fstream::trunc);
 
+	//Asking user what value they would like to be encoded
 
-	encode("SeanGrubb1234");
+	cout << "What would you like to encode?\n";
+	cin >> EncodeString;
 
+	encode(EncodeString);
 	decode();
 
 	outputFile.close();
@@ -55,9 +61,9 @@ int main()
 
 void decode()
 {
+	//Might not have to close and reopen, check later
 	outputFile.close();
-
-	outputFile.open("EncodedFile.txt");
+	outputFile.open(Filename);
 
 
 	//Use Dynamic Array
@@ -99,8 +105,6 @@ void decodeInt(int value)
 
 void encode(string value)
 {
-	//TODO fix the file not over writing the old text
-
 	std::this_thread::sleep_for(std::chrono::milliseconds(100));//makes me happy because it looks cool (remove for faster execution)
 	if (value.size() == 0)
 	{
