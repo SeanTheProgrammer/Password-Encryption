@@ -38,23 +38,6 @@ int main()
 	srand(SEED);
 	SeedFile << SEED;
 	SeedFile.close();
-
-
-	//Asking for user input to create specific file name 
-
-	//cout << "what would you like the file name to be?(Can include File Extenstion, Default is basic FILE)\n";
-	//getline(cin, Filename);
-
-	//outputFile.open(Filename, fstream::in | fstream::out | fstream::trunc);
-
-	//Asking user what value they would like to be encoded
-
-	//cout << "What would you like to encode?\n";
-	//getline(cin, EncodeString);
-
-	//encode(EncodeString);
-	//decode();
-
 	string choice;
 
 
@@ -74,31 +57,10 @@ int main()
 		//example string "Something cool to encode"
 
 		//-----------------TEST-----------------
-		
+
 		//find out where each of the spaces are
 		//create substrings between all of them
 		//if there is no right bound that is the last word in the string
-
-		//count how many spaces there are in the string
-		int count = 0;
-		int pos = 0;
-		bool reading = true;
-		while (true)
-		{
-			cout << "\nStarting Value is " << EncodeString << endl;
-			if (EncodeString.find(" ") == string::npos)break;//string::npos is the return if not found
-
-			//cout << EncodeString.find(" ", pos) << endl;
-
-			pos = EncodeString.find(" ", pos) + 1;
-			EncodeString = EncodeString.substr(pos+1);
-
-			cout << "\nEnding Value is " << EncodeString << endl;
-
-			count++;
-		}
-
-		cout << count << endl;
 
 		//-----------------TEST-----------------
 
