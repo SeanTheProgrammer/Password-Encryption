@@ -62,6 +62,14 @@ int main()
 		//create substrings between all of them
 		//if there is no right bound that is the last word in the string
 
+		int words = 0;
+		for (int n = 0; n < EncodeString.length(); n++)
+		{
+			if (EncodeString.at(n) == ' ')words++;
+		}
+
+		cout << words << " is the number of spaced \n";
+
 		//-----------------TEST-----------------
 
 		encode(EncodeString);
@@ -102,10 +110,6 @@ void decode()
 
 	while ( outputFile >> values[n])//Gets all the values from the file and puts them in the array
 	{
-		
-		//getline(outputFile, values[n]);
-		//cout << values[n] << " ";
-		//outputFile >> values[n];
 		n++;
 	}
 
@@ -138,6 +142,8 @@ void decodeInt(int value)
 }
 
 //Stack overflow called by massive recursion
+//Look into not doing it recursivly
+// Also look into doing it word by word maybe
 void encode(string value)
 {
 	std::this_thread::sleep_for(std::chrono::milliseconds(100));//makes me happy because it looks cool (remove for faster execution)
@@ -162,9 +168,10 @@ void encode(string value)
 
 }
 
+//Problem with 0 sent into value read from input
 void getRandInt(int Value)
 {
-	outputFile << SEED / Value << " ";
+	if(Value != 0) outputFile << SEED / Value << " ";
 }
 
 
